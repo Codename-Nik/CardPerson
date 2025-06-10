@@ -1,0 +1,9 @@
+{% load project_tags %}
+<div class="list-group">
+    {{ arg1 }} {{ arg2 }}
+    {% for pro in professions %}
+    <a href="{{ pro.get_absolute.url }}" class="list-group-item list-group-item-action">{{ pro.title }}
+        <span class="badge bg-primary rounded-pill" style="width: 30px; color: while;">{{ pro.cnt }}</span>
+    </a>
+    {% endfor %}
+</div>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3" style="width: 1300px;">
+    {{ forloop.counter }}
+    <h5 class="card-header">
+        Профессия: <a href="{{ item.profession.get_absolute_url }}">{{ project_item.profession.title }}</a>
+    </h5>
+    <div class="card-body">
+        {% if project_item.photo %}
+        <img src="{{ project_item.photo.url }} " class="mr3" width="500" alt="Photo" height="350" style="margin-left: 350px;">
+        {% else %}
+        <h6>фото нет</h6>
+        {% endif %}
+    </div>
+    <h5 class="card-title {% cycle 'text-black' 'text-success' 'text-primary' %}" style="margin-left: 500px">{{ project_item.surname }} {{ project_item.name }}</h5>
+    {% autoescape off %}
+    <div class="content" style="margin-left: 500px">
+        <p class="card-text">{{ project_item.date_birth }}</p>
+        <p class="card-text">{{ project_item.place_residence }}</p>
+    </div>
+    {% endautoescape %}
+</div>
+{% endblock %}

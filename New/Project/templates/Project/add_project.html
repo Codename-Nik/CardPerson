@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<div class="title">
+    Добавление сотрудника :: {{ block.super }}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Добавление сотрудника</h1>
+<form action="{% url 'Add_project' %}" method="post" style="width: 1300px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Добавить сотрудника</button>
+    {{ form.none_field.errors }}
+</form>
+
+<!--<form>
+    <div class="mb-3">
+        <label for="{{ form.name.id_form_label }}" class="form-label">Имя:</label>
+        {{ form.name }}
+        <div class="invalid-feedback">
+            {{ form.name.errors }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.surname.id_form_label }}" class="form-label">Фамилия:</label>
+        {{ form.surname }}
+        <div class="invalid-feedback">
+            {{ form.name.errors }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.date_birth.id_form_label }}" class="form-label">Адрес проживания:</label>
+        {{ form.date_birth }}
+        <div class="invalid-feedback">
+            {{ form.name.errors }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.title.id_form_label }}" class="form-label">Запомнить</label>
+        {{ form.is_published }}
+        <div class="invalid-feedback">
+            {{ form.is_published.errors }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="{{ form.profession_form_label }}" class="form-label">Профессия:</label>
+        {{ form.profession }}
+        <div class="invalid-feedback">
+            {{ form.name.errors }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить сотрудника</button>
+</form>-->
+{% endblock %}

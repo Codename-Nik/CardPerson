@@ -1,0 +1,13 @@
+{% load project_tags %}
+{% get_list_professions as professions %}
+{% comment %}
+<div class="list-group">
+<!--    {{ arg1 }} {{ arg2 }}-->
+<!--    {% get_list_professions as professions %}-->
+<!--    {% show_professions %}-->
+    {% for pro in professions %}
+    <a href="{% url 'Profession' pro.pk %}" class="list-group-item list-group-item-action">{{ pro.title }} <span class="badge bg-primary rounded-pill" style="width: 30px; color: while;">14</span></a>
+    {% endfor %}
+</div>
+{% endcomment %}
+{% show_professions %}
